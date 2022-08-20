@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api/components"
-const Home = () => {
+const PageUseForm = () => {
   let ref = useRef<IInputRef>(null);
   let form = useRef<FormRef>(null);
   let ref2 = useRef<IButtonRef>(null);
@@ -39,4 +39,4 @@ const Home = () => {
   </>
 }
 
-export default Home
+export default PageUseForm

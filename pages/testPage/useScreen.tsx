@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api/components"
+import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api"
 const PageUseScreen = () => {
   let form = useRef<FormRef>(null);
 
@@ -26,9 +26,9 @@ const PageUseScreen = () => {
           onClick={() => {
             console.log(useScreen.isValid());
           }} />
-        <WebApi.Select id="select1"   isClearable isSearchable label="selam 1" defaultValue={{ value: 'vanilla', label: 'Vanilla' }} options={options}  onValid={[(e) => { return { IsValid:e.getValue()!=null && e.getValue().value == "chocolate", ValidText: "chocolate select" } }]}      />
-        <WebApi.Input id="input1" label="input1" type="textarea" />
-        <WebApi.Checkbox id="Checkbox" label="input1" defaultValue={true}
+        <WebApi.Controller.Select id="select1"   isClearable isSearchable label="selam 1" defaultValue={{ value: 'vanilla', label: 'Vanilla' }} options={options}  onValid={[(e) => { return { IsValid:e.getValue()!=null && e.getValue().value == "chocolate", ValidText: "chocolate select" } }]}      />
+        <WebApi.Controller.Input id="input1" label="input1" type="textarea" />
+        <WebApi.Controller.Checkbox id="Checkbox" label="input1" defaultValue={true}
           onValid={[(e) => { return { IsValid: e.getValue() == true, ValidText: "SEC select" } }]}
         /> 
       </useForm.View>
@@ -47,9 +47,9 @@ const PageUseScreen = () => {
           onClick={() => {
             console.log(useScreen.isValid());
           }} />
-        <WebApi.Select id="select1"   isClearable isSearchable label="selam 1" defaultValue={{ value: 'vanilla', label: 'Vanilla' }} options={options}  onValid={[(e) => { return { IsValid:e.getValue()!=null && e.getValue().value == "chocolate", ValidText: "chocolate select" } }]}      />
-        <WebApi.Input id="input1" label="input1" type="textarea" />
-        <WebApi.Checkbox id="Checkbox" label="input1" defaultValue={true}
+        <WebApi.Controller.Select id="select1"   isClearable isSearchable label="selam 1" defaultValue={{ value: 'vanilla', label: 'Vanilla' }} options={options}  onValid={[(e) => { return { IsValid:e.getValue()!=null && e.getValue().value == "chocolate", ValidText: "chocolate select" } }]}      />
+        <WebApi.Controller.Input id="input1" label="input1" type="textarea" />
+        <WebApi.Controller.Checkbox id="Checkbox" label="input1" defaultValue={true}
           onValid={[(e) => { return { IsValid: e.getValue() == true, ValidText: "SEC select" } }]}
         /> 
       </WebApi.Form.FormView>

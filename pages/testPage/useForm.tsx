@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api/components"
+import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api"
 const PageUseForm = () => {
   let ref = useRef<IInputRef>(null);
   let form = useRef<FormRef>(null);
@@ -26,15 +26,27 @@ const PageUseForm = () => {
       <WebApi.Button id="btn3" ref={ref2} label="isValid" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {
           console.log(useForm.isValid());
+        }} />    
+        
+        
+        <WebApi.Button id="btn3" ref={ref2} label="SET 21:21" icon={{ iconName: WebApi.IconName.AlignJustify }}
+        onClick={() => {
+          console.log(   useForm.getBaseController("date1").getValue());
+        //  return;
+          useForm.getBaseController("date1").setValue("21:21")
         }} />
-      <WebApi.Input ref={ref} id="name1" label="label1" defaultValue={"a"}   onValid={[(e) => { return { IsValid: e.getValue().length > 3, ValidText: "error1" } }, (e) => { return { IsValid: e.getValue() != "SALTUK", ValidText: "SALTUK" } }]}/>
-      <WebApi.Input id="name2" onValid={[(e) => { return { IsValid: e.getValue().length > 3, ValidText: "error1" } }, (e) => { return { IsValid: e.getValue() != "SALTUK", ValidText: "SALTUK" } }]} label={"name2"} defaultValue={"asd"} />
-      <WebApi.Input id="name3" label="name3" defaultValue={"name3"} bsSize={"sm"} responsive={{ lg: 12, md: 12, sm: 12, xl: 12, xs: 12 }} />
-      <WebApi.Input id="name4" label="name4" defaultValue={"name4"} bsSize={"sm"} spacer />
-      <WebApi.Input id="name5" label="name5" defaultValue={"name5"} bsSize={"sm"} />
-      <WebApi.Input id="name6" label="name6 spacer" defaultValue={"name6"} bsSize={"sm"} spacer />
-      <WebApi.Input id="name7" label="name7" defaultValue={"name7"} bsSize={"sm"} />
-
+      <WebApi.Controller.Input ref={ref} id="name1" label="label1" defaultValue={"a"}   onValid={[(e) => { return { IsValid: e.getValue().length > 3, ValidText: "error1" } }, (e) => { return { IsValid: e.getValue() != "SALTUK", ValidText: "SALTUK" } }]}/>
+      <WebApi.Controller.Input id="name2" onValid={[(e) => { return { IsValid: e.getValue().length > 3, ValidText: "error1" } }, (e) => { return { IsValid: e.getValue() != "SALTUK", ValidText: "SALTUK" } }]} label={"name2"} defaultValue={"asd"} />
+      <WebApi.Controller.Input id="name3" label="name3" defaultValue={"name3"} bsSize={"sm"} responsive={{ lg: 12, md: 12, sm: 12, xl: 12, xs: 12 }} />
+      <WebApi.Controller.Input id="name4" label="name4" defaultValue={"name4"} bsSize={"sm"} spacer />
+      <WebApi.Controller.Input id="name5" label="name5" defaultValue={"name5"} bsSize={"sm"} />
+      <WebApi.Controller.Input id="name6" label="name6 spacer" defaultValue={"name6"} bsSize={"sm"} spacer />
+      <WebApi.Controller.Date id="time" type={"time"}  label="times"/> 
+      <WebApi.Controller.Input id="name5" label="name5" defaultValue={"name5"} bsSize={"sm"} />
+      <WebApi.Controller.Date id="daterenage" type={"date"} mode={"range"}  label="times"/> 
+      <WebApi.Controller.Date id="date" type={"date"}   label="times"/> 
+      <WebApi.Controller.Date id="datetime" type={"datetime"}   label="times"/> 
+      <WebApi.Controller.Date id="datetimerange" type={"datetime"} mode={"range"}  label="times"/> 
     </useForm.View> 
   </>
 }

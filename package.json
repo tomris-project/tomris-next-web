@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.184",
+    "@types/react-flatpickr": "^3.8.7",
     "bootstrap": "^5.2.0",
+    "lodash": "^4.17.21",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -1,17 +1,16 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "flatpickr/dist/themes/light.css";
 
-import Head from 'next/head'
-import type { AppProps } from 'next/app'
+import Head from 'next/head' 
+import { useRouter } from 'next/router';
 
-function MyApp(page: AppProps) { 
-  return (<div className='container-fluid'>
-    <div>
-      <Head>
-        <title>TOMRIS WEB PAGE - {page.router.pathname}</title>
-      </Head> 
-    </div>
-    <page.Component {...page.pageProps} />
-  </div>)
-}
-export default MyApp
+import App from 'next/app';
+import {  WebApi } from 'tomris-web-api'; 
+/**
+ * Web Api Project any other project include Start Page
+ */
+WebApi.MyApp.DATA.App=App;
+WebApi.MyApp.DATA.Head=Head;
+WebApi.MyApp.DATA.useRouter=useRouter;  
+export default WebApi.MyApp.App;

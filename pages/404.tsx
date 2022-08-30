@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react"
-import { WebApi } from "tomris-web-api/components"
+import { useEffect  } from "react" 
  
 const Page404 = () => {
  

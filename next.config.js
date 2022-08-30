@@ -9,7 +9,7 @@
 const path = require("path");
 
 const getPath = (libaryName) => path.resolve(`./node_modules/${libaryName}`);
-
+const isProd = process.env.NODE_ENV == "production";
 const libData = {
   react: getPath("react"),
   next: getPath("next"),
@@ -19,7 +19,10 @@ const libData = {
 
 module.exports = {
   NODE_ENV: "dev",
+  useFileSystemPublicRoutes: true,
   basePath: "",
+  output: "standalone",
+  //assetPrefix: isProd ? "/static" : "",
   webpack: (config, { dev }) => {
     config.resolve = {
       ...config.resolve,
@@ -27,8 +30,8 @@ module.exports = {
         ...config.resolve.alias,
         ...libData,
       },
-    }; 
-     
+    };
+
     return config;
   },
 };

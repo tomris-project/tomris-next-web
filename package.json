@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf .next && next build && mkdir .next/standalone/static  && mkdir .next/standalone/static/_next  && cp -a .next/static/ .next/standalone/static/_next/static  && cp -a public/ .next/standalone/public",
+    "build-start": "rm -rf .next && next build && mkdir .next/standalone/static  && mkdir .next/standalone/static/_next  && cp -a .next/static/ .next/standalone/static/_next/static  && cp -a public/ .next/standalone/public && node .next/standalone/server.js",
     "start": "next start",
     "lint": "next lint"
   },

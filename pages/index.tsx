@@ -1,7 +1,11 @@
 import { useRef, useState } from "react"
 import { WebApi } from "tomris-web-api" 
  
-const Home = () => {
+const Home = () => { 
+
+  WebApi.PageContext.set("key1",{A:1,B:2})
+  let data=WebApi.PageContext.get("key1");
+  console.log(data);
   let SampleScreen =[
     { test:"components",page:"testPage/components"},
     { test:"useForm",page:"testPage/useForm"},

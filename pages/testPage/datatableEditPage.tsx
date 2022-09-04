@@ -1,16 +1,18 @@
+import { useCallback, useMemo } from "react";
 import { CheckboxProps, DateProps, iFormProps, InputNumberProps, InputProps, ITabMainProps, RadioProps, SelectProps, WebApi } from "tomris-web-api"
 import { ControllerType } from "tomris-web-api";
 
 const FakeData = {
   "products": [
     {
+      CheckBox:true,
       "name": "Burke Flowers",
       "phone": "(517) 236-3431",
       "email": "penatibus.et.magnis@yahoo.edu",
       "region": "Bursa",
       "country": "China",
       "text": "ut eros non enim commodo hendrerit. Donec porttitor tellus non",
-      "numberrange": 5,
+      "numberrange": {value:5,currency:"TRY"},
       "currency": 29633.39,
       "alphanumeric": "FYR28YBZ0EP",
       "postalZip": "573873",
@@ -1456,16 +1458,17 @@ const FakeData = {
   ]
 
 };
-const DataTablePage = () => {
+const datatableEditPage = () => {
 
   let TableData = WebApi.Controller.useDataTable();
   let TableData2 = WebApi.Controller.useDataTable();
   return <>
-    <hr />
+    {/* <hr />
     Sample 1
     <hr />
     <TableData.View
       name="DataTable1"
+      maxHeight={800}
       SearchForm={{
         event: (form) => {
           console.log(form.getValues());
@@ -1484,11 +1487,38 @@ const DataTablePage = () => {
         }
 
       }}
+      EditForm={{
+        event: (form) => {
+          console.log(form.getValues());
+          return form.getValues();
+        },
+        // formComponents: {
+        //   objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 2 } } as iFormProps),
+        //   child: [
+        //     { objectName: "CheckBox", objectType: "Checkbox", props: ({ id: "CheckBox", label: "CheckBox" } as CheckboxProps) },
+        //     { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
+        //     { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
+        //     { objectName: "email", objectType: "Input", props: ({ id: "email", label: "email" } as InputProps) },
+        //     { objectName: "region", objectType: "Input", props: ({ id: "region", label: "region" } as InputProps) },
+        //     { objectName: "country", objectType: "Input", props: ({ id: "country", label: "country" } as InputProps) },
+        //     { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY", "USD"], type: "curreny" } as InputNumberProps) },
+        //     { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency" } as InputNumberProps) },
+        //     { objectName: "alphanumeric", objectType: "Input", props: ({ id: "alphanumeric", label: "alphanumeric" } as InputProps) },
+        //     { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime" } as DateProps) },
+        //     { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time" } as DateProps) },
+        //   ]
+        // }
+
+      }}
       selectLoadExp={(row) => { return row.numberrange?.value > 5 }}
       header="SELAM DATA "
-      data={FakeData.products}
+      data={FakeData.products} 
+      expandableRowsComponent={(e) => {
+
+        return <div><pre>{JSON.stringify(e, null, "\t")}</pre></div>;
+      }}
       selectableRows
-      filterType={"multiple"} eidtMode={"none"} filterTypeLabelExcelModeIsShow={true}
+      filterType={"multiple"} eidtMode={"modal"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
           { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
@@ -1503,7 +1533,7 @@ const DataTablePage = () => {
           { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
         ]
-      } />
+      } /> */}
 
 
     <hr />
@@ -1511,16 +1541,57 @@ const DataTablePage = () => {
     <hr />
     <TableData2.View
       name="DataTable1"
+      maxHeight={800}
       SearchForm={{
         event: (form) => {
           console.log(form.getValues());
-        } 
+        },
+        formComponents: {
+          objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 4 }, responsive: { lg: 6, xl: 6 } } as iFormProps),
+          child: [
+            { objectName: "Checkbox", objectType: "Checkbox", props: ({ id: "Checkbox", label: "Checkbox", indeterminate: true } as CheckboxProps) },
+            { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
+            { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
+            { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY"], mode: "range" } as InputNumberProps) },
+            { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency", mode: "range" } as InputNumberProps) },
+            { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime", mode: "range" } as DateProps) },
+            { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time", mode: "range" } as DateProps) },
+          ]
+        }
+
+      }}
+      EditForm={{
+        event: (form) => {
+          console.log(form.getValues());
+          return form.getValues();
+        },
+        formComponents: {
+          objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 2 } } as iFormProps),
+          child: [
+            { objectName: "CheckBox", objectType: "Checkbox", props: ({ id: "CheckBox", label: "CheckBox" } as CheckboxProps) },
+            { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
+            { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
+            { objectName: "email", objectType: "Input", props: ({ id: "email", label: "email" } as InputProps) },
+            { objectName: "region", objectType: "Input", props: ({ id: "region", label: "region" } as InputProps) },
+            { objectName: "country", objectType: "Input", props: ({ id: "country", label: "country" } as InputProps) },
+            { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY", "USD"], type: "currency" } as InputNumberProps) },
+            { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency" } as InputNumberProps) },
+            { objectName: "alphanumeric", objectType: "Input", props: ({ id: "alphanumeric", label: "alphanumeric" } as InputProps) },
+            { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime" } as DateProps) },
+            { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time" } as DateProps) },
+          ]
+        }
+
       }}
       selectLoadExp={(row) => { return row.numberrange?.value > 5 }}
       header="SELAM DATA "
-      data={FakeData.products}
+      data={FakeData.products} 
+      expandableRowsComponent={(e) => {
+
+        return <div><pre>{JSON.stringify(e, null, "\t")}</pre></div>;
+      }}
       selectableRows
-      filterType={"multiple"} eidtMode={"excel"} filterTypeLabelExcelModeIsShow={true}
+      filterType={"multiple"} eidtMode={"modal"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
           { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
@@ -1529,14 +1600,14 @@ const DataTablePage = () => {
           { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
           { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
           { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "curreny" } },
+          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "currency", currencyOptions: ["TRY", "USD"] } },
           { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.Number },
           { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
-          { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime",spacer:true } },
+          { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
         ]
       } />
   </>
 }
 
-export default DataTablePage
+export default datatableEditPage

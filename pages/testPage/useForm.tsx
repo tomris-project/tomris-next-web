@@ -1,22 +1,22 @@
 import { useRef, useState } from "react"
 import { IInputRef, IButtonRef, WebApi, FormRef } from "tomris-web-api"
 const PageUseForm = () => {
-  let ref = useRef<IInputRef>(null);
-  let form = useRef<FormRef>(null);
+   let ref = useRef<IInputRef>(null);
+  // let form = useRef<FormRef>(null);
   let ref2 = useRef<IButtonRef>(null); 
-  let useForm=WebApi.Form.useForm(); 
+  let useForm=WebApi.Form.useForm();  
   return <>
  
-    <useForm.View name="Form1" ref={form}  responsiveSize={{ col: 4 }} responsive={{ lg: 8, md: 8, sm: 8, xl: 8, xs: 8 }}>
+    <useForm.View name="Form1"   responsiveSize={{ col: 4 }} responsive={{ lg: 8, md: 8, sm: 8, xl: 8, xs: 8 }}>
       <WebApi.Button id="btn" ref={ref2} label="btn1 HIDE" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => { 
           console.log(useForm.getValues())  
-          form.current?.getBaseController?.("name1").setHide();
-          form.current?.getBaseController?.("name2").setHide();
+          // form.current?.getBaseController?.("name1").setHide();
+          // form.current?.getBaseController?.("name2").setHide();
         }} />
       <WebApi.Button id="btn2" ref={ref2} label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {
-          console.log(form.current?.getValues());
+          // console.log(form.current?.getValues());
         }} />
       <WebApi.Button id="btn3" ref={ref2} label="isValid" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {

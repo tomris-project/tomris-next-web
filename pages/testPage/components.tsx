@@ -15,7 +15,7 @@ const PageComponents = () => {
   ]
 
   return <>
-    <useForm.View name="Form1" ref={form} responsiveSize={{ col: 4 }}  >
+    <useForm.View name="Form1"  responsiveSize={{ col: 4 }}  >
       <WebApi.Button id="btn1" label="btn1 HIDE" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {
           console.log(useForm.getValues())
@@ -49,6 +49,7 @@ const PageComponents = () => {
 
 
       <WebApi.Controller.InputNumber id={"InputNumber"} ref={number1} defaultValue={{ Start: 50, Stop: 51, currency: "TL" }} label="Range Sayi Giriniz" mode="range" />
+      <WebApi.Controller.InputNumber id={"InputNumber"} ref={number1} defaultValue={{value: 34  }} currencyOptions={["USD","TRY","EUR"]} label=" Sayi Giriniz Only"  />
       {/* <WebApi.Controller.InputNumber id={"InputNumber"} ref={number1} defaultValue={{ value: 2032434.34, currency: "TL" }} label="Range Sayi Giriniz" /> */}
 
       <WebApi.Button id="btn4" label="setNumber Value" icon={{ iconName: WebApi.IconName.AlignJustify }} spacer

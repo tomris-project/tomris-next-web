@@ -16,11 +16,11 @@ const PageUseScreen = () => {
       <useForm.View name="Form" responsiveSize={{ col: 4 }}  >
         <WebApi.Button id="btn1" label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
           onClick={() => {
-            console.log(useScreen.getValues()) 
+            console.log(useScreen.getValue()) 
           }} />
         <WebApi.Button id="btn2" label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
           onClick={() => {
-            console.log(useForm.getValues());
+            console.log(useForm.getValue());
           }} />
         <WebApi.Button id="btn3" label="isValid" icon={{ iconName: WebApi.IconName.AlignJustify }} spacer
           onClick={() => {
@@ -37,11 +37,11 @@ const PageUseScreen = () => {
       <WebApi.Form.FormView ref={form} name="Form2" responsiveSize={{ col: 4 }}  >
         <WebApi.Button id="btn1" label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
           onClick={() => {
-            console.log(useScreen.getValues()) 
+            console.log(useScreen.getValue()) 
           }} />
         <WebApi.Button id="btn2" label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
           onClick={() => {
-            console.log(form?.current?.getValues());
+            console.log(form?.current?.getValue());
           }} />
         <WebApi.Button id="btn3" label="isValid" icon={{ iconName: WebApi.IconName.AlignJustify }} spacer
           onClick={() => {

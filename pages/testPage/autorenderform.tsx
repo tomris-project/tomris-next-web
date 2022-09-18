@@ -6,13 +6,13 @@ const PageRender = () => {
     let viewSample: RenderProps = {
         RenderData: {
             objectName: "Form1", objectType: "Form", props: ({ name: "Frm1", responsiveSize: { col: 1 } } as iFormProps),
-            child: [
+            children: [
                 {
                     objectName: "TabMain", objectType: "TabMain", props: ({ id: "TabMain", isWizard: true } as ITabMainProps),
-                    child: [
+                    children: [
                         {
                             objectName: "Tab1", objectType: "TabPanel", props: ({ id: "Tab1", name: "Tab1", responsiveSize: { col: 2 } } as ITabPanelProps),
-                            child: [
+                            children: [
                                 { objectName: "Input2", objectType: "InputNumber", props: ({ id: "Input2", label: "Label2", defaultValue: { value: 10.10, currency: "$" } } as InputNumberProps) },
                                 { objectName: "Input3", objectType: "Date", props: ({ id: "Input3", label: "date", type: "date" } as DateProps) },
                                 { objectName: "Input4", objectType: "Date", props: ({ id: "Input4", label: "datetime", type: "datetime" } as DateProps) },
@@ -21,7 +21,7 @@ const PageRender = () => {
                         },
                         {
                             objectName: "Tab2", objectType: "TabPanel", props: ({ id: "Tab2", name: "Tab2", responsiveSize: { col: 2 }  } as ITabPanelProps),
-                            child: [
+                            children: [
                                 { objectName: "Input3range", objectType: "Date", props: ({ id: "Input3range", label: "date", type: "date", mode: "range" } as DateProps) },
                                 { objectName: "Input4range", objectType: "Date", props: ({ id: "Input4range", label: "datetime", type: "datetime", mode: "range" } as DateProps) },
                                 { objectName: "Input5range", objectType: "Date", props: ({ id: "Input5range", label: "time", type: "time", mode: "range" } as DateProps) },
@@ -41,7 +41,7 @@ const PageRender = () => {
 
 
     useEffect(() => {
-       console.log(AutoRender.getForm().getValues());
+       console.log(AutoRender.getForm().getValue());
     })
 
     return <>

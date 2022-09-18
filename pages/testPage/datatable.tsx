@@ -1468,11 +1468,11 @@ const DataTablePage = () => {
       name="DataTable1"
       SearchForm={{
         event: (form) => {
-          console.log(form.getValues());
+          console.log(form.getValue());
         },
         formComponents: {
           objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 4 }, responsive: { lg: 6, xl: 6 } } as iFormProps),
-          child: [
+          children: [
             { objectName: "Checkbox", objectType: "Checkbox", props: ({ id: "Checkbox", label: "Checkbox", indeterminate: true } as CheckboxProps) },
             { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
             { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
@@ -1488,7 +1488,7 @@ const DataTablePage = () => {
       header="SELAM DATA "
       data={FakeData.products}
       selectableRows
-      filterType={"multiple"} eidtMode={"none"} filterTypeLabelExcelModeIsShow={true}
+      filterType={"multiple"} editmode={"none"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
           { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
@@ -1497,8 +1497,8 @@ const DataTablePage = () => {
           { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
           { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
           { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "curreny" } },
-          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.Number },
+          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "curreny" } },
+          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
           { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
           { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
@@ -1513,14 +1513,14 @@ const DataTablePage = () => {
       name="DataTable1"
       SearchForm={{
         event: (form) => {
-          console.log(form.getValues());
+          console.log(form.getValue());
         } 
       }}
       selectLoadExp={(row) => { return row.numberrange?.value > 5 }}
       header="SELAM DATA "
       data={FakeData.products}
       selectableRows
-      filterType={"multiple"} eidtMode={"excel"} filterTypeLabelExcelModeIsShow={true}
+      filterType={"multiple"} editmode={"excel"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
           { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
@@ -1529,8 +1529,8 @@ const DataTablePage = () => {
           { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
           { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
           { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "curreny" } },
-          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.Number },
+          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "curreny" } },
+          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
           { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
           { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime",spacer:true } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }

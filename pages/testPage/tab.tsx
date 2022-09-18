@@ -43,24 +43,37 @@ const TabScreen = () => {
             <WebApi.Tab.TabMain ref={TabRef2} id="SELAM2" isWizard>
                 <WebApi.Tab.TabPanel id="Tab12" name="Tab 1 Name"  >
                     <WebApi.Controller.Input type="text" id="Name1" label="Name1"
-                        onValid={(e) => { return { IsValid: e.getValue() == "1" ,ValidText:"Name1" } }} />
+                        onValid={(e) => { return { IsValid: e.getValue() == "1", ValidText: "Name1" } }} />
                 </WebApi.Tab.TabPanel>
                 <WebApi.Tab.TabPanel id="Tab22" name="Tab 2 Name"  >
-                    <WebApi.Controller.Input type="text" id="Name2" label="Name2" 
-                        onValid={(e) => { return { IsValid: e.getValue() == "1" ,ValidText:"Name2" } }} />
+                    <WebApi.Controller.Input type="text" id="Name2" label="Name2"
+                        onValid={(e) => { return { IsValid: e.getValue() == "1", ValidText: "Name2" } }} />
                 </WebApi.Tab.TabPanel>
 
                 <WebApi.Tab.TabPanel id="Tab23" name="Tab 3 Name"  >
-                    <WebApi.Controller.Input type="text" id="Name3" label="Name3"  
-                    onValid={(e) => { return { IsValid: e.getValue() == "1" ,ValidText:"Name2" } }} />
+                    <WebApi.Controller.Input type="text" id="Name3" label="Name3"
+                        onValid={(e) => { return { IsValid: e.getValue() == "1", ValidText: "Name2" } }} />
                 </WebApi.Tab.TabPanel>
 
                 <WebApi.Tab.TabPanel id="Tab24" name="Tab 4 Name"  >
-                    <WebApi.Controller.Input type="text" id="Name4" label="Name4"  
-                    onValid={(e) => { return { IsValid: e.getValue() == "1" ,ValidText:"Name4" } }} />
+                    <WebApi.Controller.Input type="text" id="Name4" label="Name4"
+                        onValid={(e) => { return { IsValid: e.getValue() == "1", ValidText: "Name4" } }} />
                 </WebApi.Tab.TabPanel>
             </WebApi.Tab.TabMain>
         </WebApi.Form.FormView>
+
+        <hr />
+        TEST Acordion Form
+        <hr />
+
+        <WebApi.Accordion.Accordion id="SELAM2">
+            <WebApi.Accordion.AccordionPanel name="Accordion 1 Name"  >
+                Accordion 1
+            </WebApi.Accordion.AccordionPanel> 
+            <WebApi.Accordion.AccordionPanel name="Accordion 2 Name"  >
+                Accordion 2
+            </WebApi.Accordion.AccordionPanel>
+        </WebApi.Accordion.Accordion>
     </>
 
 }

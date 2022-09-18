@@ -17,7 +17,8 @@ const Home = () => {
     { test:"tab",page:"testPage/tab"},
     { test:"modal",page:"testPage/modal"},
     { test:"autorender",page:"testPage/autorender"},
+    { test:"PAGE DESIGNER",page:"designer/page"},
   ]
-  return <><WebApi.View responsiveSize={{col:2}}>{SampleScreen.map((e,index)=>{ return <p key={index}><a target={"_blank"} href={e.page}>{e.test}</a></p>}) }</WebApi.View> </>
+  return <><WebApi.View responsiveSize={{col:2}}>{SampleScreen.map((e,index)=>{ return <p key={index}><a target={"_blank"} href={"/Screen/"+e.page}>{e.test}</a></p>}) }</WebApi.View> </>
 }
 export default Home

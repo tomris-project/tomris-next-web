@@ -1,6 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "flatpickr/dist/themes/light.css";
+import "../styles/dragdrop.css";
 
 import Head from 'next/head' 
 import { useRouter } from 'next/router';

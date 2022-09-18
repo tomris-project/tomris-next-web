@@ -10,7 +10,7 @@ const PageUseForm = () => {
     <useForm.View name="Form1"   responsiveSize={{ col: 4 }} responsive={{ lg: 8, md: 8, sm: 8, xl: 8, xs: 8 }}>
       <WebApi.Button id="btn" ref={ref2} label="btn1 HIDE" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => { 
-          console.log(useForm.getValues())  
+          console.log(useForm.getValue())  
           // form.current?.getBaseController?.("name1").setHide();
           // form.current?.getBaseController?.("name2").setHide();
         }} />

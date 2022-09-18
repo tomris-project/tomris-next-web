@@ -20,9 +20,10 @@ const libData = {
 module.exports = {
   NODE_ENV: "dev",
   useFileSystemPublicRoutes: true,
-  basePath: "",
+  basePath: "/Screen",
   output: "standalone",
   //assetPrefix: isProd ? "/static" : "",
+  assetPrefix: isProd ? "/static" : "",
   webpack: (config, { dev }) => {
     config.resolve = {
       ...config.resolve,

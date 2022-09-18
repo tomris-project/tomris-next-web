@@ -8,16 +8,16 @@ const PageRender = () => {
             objectName: "Screen1",
             objectType: "Screen",
             props: ({ screencode: "scr1", responsiveSize: { col: 2 } } as iScreenProps),
-            child: [
+            children: [
                 {
                     objectName: "Form1", objectType: "Form", props: ({ name: "Frm1", responsiveSize: { col: 1 } } as iFormProps),
-                    child: [
+                    children: [
                         {
                             objectName: "TabMain", objectType: "TabMain", props: ({ id: "TabMain", isWizard: true } as ITabMainProps),
-                            child: [
+                            children: [
                                 {
                                     objectName: "Tab1", objectType: "TabPanel", props: ({ id: "Tab1", name: "Tab1", responsiveSize: { col: 2 } } as ITabPanelProps),
-                                    child: [
+                                    children: [
                                         { objectName: "Input2", objectType: "InputNumber", props: ({ id: "Input2", label: "Label2", defaultValue: { value: 10.10, currency: "$" } } as InputNumberProps) },
                                         { objectName: "Input3", objectType: "Date", props: ({ id: "Input3", label: "date", type: "date" } as DateProps) },
                                         { objectName: "Input4", objectType: "Date", props: ({ id: "Input4", label: "datetime", type: "datetime" } as DateProps) },
@@ -26,7 +26,7 @@ const PageRender = () => {
                                 },
                                 {
                                     objectName: "Tab2", objectType: "TabPanel", props: ({ id: "Tab2", name: "Tab2", responsiveSize: { col: 2 }  } as ITabPanelProps),
-                                    child: [
+                                    children: [
                                         { objectName: "Input3range", objectType: "Date", props: ({ id: "Input3range", label: "date", type: "date", mode: "range" } as DateProps) },
                                         { objectName: "Input4range", objectType: "Date", props: ({ id: "Input4range", label: "datetime", type: "datetime", mode: "range" } as DateProps) },
                                         { objectName: "Input5range", objectType: "Date", props: ({ id: "Input5range", label: "time", type: "time", mode: "range" } as DateProps) },
@@ -41,7 +41,7 @@ const PageRender = () => {
                 },
                 {
                     objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 3 } } as iFormProps),
-                    child: [
+                    children: [
                         { objectName: "Input1", objectType: "Input", props: ({ id: "Input1", label: "Label1", defaultValue: "Label1" } as InputProps) },
                         { objectName: "Input2", objectType: "InputNumber", props: ({ id: "Input2", label: "Label2", defaultValue: { value: 10.10, currency: "$" }, spacer: true } as InputNumberProps) },
                         { objectName: "Input3", objectType: "Date", props: ({ id: "Input3", label: "date", type: "date" } as DateProps) },
@@ -108,13 +108,14 @@ const PageRender = () => {
                                     "date": "2022.08.30 8:30:11",
                                     "time": "6:25:01"
                                 },
+                                
                             ],
                             selectLoadExp: (row) => {
                                 return row.numberrange?.value > 5
                             },
                             header: "SELAM DATA ",
                             selectableRows: true,
-                            filterType: "multiple", eidtMode: "excel", filterTypeLabelExcelModeIsShow: true,
+                            filterType: "multiple", eidtMode: "modal", filterTypeLabelExcelModeIsShow: true,
                             responsive: { lg: 12, md: 12, sm: 12, xl: 12, xs: 12 },
                             columns:
                                 [
@@ -124,8 +125,8 @@ const PageRender = () => {
                                     { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
                                     { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
                                     { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-                                    { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "curreny" } },
-                                    { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.Number },
+                                    { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "curreny" } },
+                                    { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
                                     { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
                                     { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
                                     { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
@@ -141,7 +142,7 @@ const PageRender = () => {
 
 
     useEffect(() => {
-       console.log(AutoRender.getScreen().getValues());
+       console.log(AutoRender.getScreen().getValue());
     })
 
     return <>

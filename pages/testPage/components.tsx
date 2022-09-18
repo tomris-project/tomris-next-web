@@ -18,14 +18,14 @@ const PageComponents = () => {
     <useForm.View name="Form1"  responsiveSize={{ col: 4 }}  >
       <WebApi.Button id="btn1" label="btn1 HIDE" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {
-          console.log(useForm.getValues())
+          console.log(useForm.getValue())
           return
           form.current?.getBaseController?.("name1").setHide();
           form.current?.getBaseController?.("name2").setHide();
         }} />
       <WebApi.Button id="btn2" label="GETDATA" icon={{ iconName: WebApi.IconName.AlignJustify }}
         onClick={() => {
-          console.log(form.current?.getValues());
+          console.log(form.current?.getValue());
         }} />
       <WebApi.Button id="btn3" label="isValid" icon={{ iconName: WebApi.IconName.AlignJustify }} spacer
         onClick={() => {

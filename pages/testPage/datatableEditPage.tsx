@@ -1544,43 +1544,43 @@ const datatableEditPage = () => {
       maxHeight={800}
       SearchForm={{
         event: (form) => {
-          console.log(form.getValues());
+          console.log(form.getValue());
         },
-        formComponents: {
-          objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 4 }, responsive: { lg: 6, xl: 6 } } as iFormProps),
-          child: [
-            { objectName: "Checkbox", objectType: "Checkbox", props: ({ id: "Checkbox", label: "Checkbox", indeterminate: true } as CheckboxProps) },
-            { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
-            { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
-            { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY"], mode: "range" } as InputNumberProps) },
-            { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency", mode: "range" } as InputNumberProps) },
-            { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime", mode: "range" } as DateProps) },
-            { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time", mode: "range" } as DateProps) },
-          ]
-        }
+        // formComponents: {
+        //   objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 4 }, responsive: { lg: 6, xl: 6 } } as iFormProps),
+        //   child: [
+        //     { objectName: "Checkbox", objectType: "Checkbox", props: ({ id: "Checkbox", label: "Checkbox", indeterminate: true } as CheckboxProps) },
+        //     { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
+        //     { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
+        //     { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY"], mode: "range" } as InputNumberProps) },
+        //     { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency", mode: "range" } as InputNumberProps) },
+        //     { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime", mode: "range" } as DateProps) },
+        //     { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time", mode: "range" } as DateProps) },
+        //   ]
+        // }
 
       }}
       EditForm={{
         event: (form) => {
-          console.log(form.getValues());
-          return form.getValues();
+          console.log(form.getValue());
+          return form.getValue();
         },
-        formComponents: {
-          objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 2 } } as iFormProps),
-          child: [
-            { objectName: "CheckBox", objectType: "Checkbox", props: ({ id: "CheckBox", label: "CheckBox" } as CheckboxProps) },
-            { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
-            { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
-            { objectName: "email", objectType: "Input", props: ({ id: "email", label: "email" } as InputProps) },
-            { objectName: "region", objectType: "Input", props: ({ id: "region", label: "region" } as InputProps) },
-            { objectName: "country", objectType: "Input", props: ({ id: "country", label: "country" } as InputProps) },
-            { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY", "USD"], type: "currency" } as InputNumberProps) },
-            { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency" } as InputNumberProps) },
-            { objectName: "alphanumeric", objectType: "Input", props: ({ id: "alphanumeric", label: "alphanumeric" } as InputProps) },
-            { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime" } as DateProps) },
-            { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time" } as DateProps) },
-          ]
-        }
+        // formComponents: {
+        //   objectName: "Form2", objectType: "Form", props: ({ name: "Frm2", responsiveSize: { col: 2 } } as iFormProps),
+        //   child: [
+        //     { objectName: "CheckBox", objectType: "Checkbox", props: ({ id: "CheckBox", label: "CheckBox" } as CheckboxProps) },
+        //     { objectName: "name", objectType: "Input", props: ({ id: "name", label: "name" } as InputProps) },
+        //     { objectName: "phone", objectType: "Input", props: ({ id: "phone", label: "phone" } as InputProps) },
+        //     { objectName: "email", objectType: "Input", props: ({ id: "email", label: "email" } as InputProps) },
+        //     { objectName: "region", objectType: "Input", props: ({ id: "region", label: "region" } as InputProps) },
+        //     { objectName: "country", objectType: "Input", props: ({ id: "country", label: "country" } as InputProps) },
+        //     { objectName: "numberrange", objectType: "InputNumber", props: ({ id: "numberrange", label: "numberrange", currencyOptions: ["TRY", "USD"], type: "currency" } as InputNumberProps) },
+        //     { objectName: "currency", objectType: "InputNumber", props: ({ id: "currency", label: "currency" } as InputNumberProps) },
+        //     { objectName: "alphanumeric", objectType: "Input", props: ({ id: "alphanumeric", label: "alphanumeric" } as InputProps) },
+        //     { objectName: "date", objectType: "Date", props: ({ id: "date", label: "datetime", type: "datetime" } as DateProps) },
+        //     { objectName: "time", objectType: "Date", props: ({ id: "time", label: "time", type: "time" } as DateProps) },
+        //   ]
+        // }
 
       }}
       selectLoadExp={(row) => { return row.numberrange?.value > 5 }}
@@ -1591,7 +1591,7 @@ const datatableEditPage = () => {
         return <div><pre>{JSON.stringify(e, null, "\t")}</pre></div>;
       }}
       selectableRows
-      filterType={"multiple"} eidtMode={"modal"} filterTypeLabelExcelModeIsShow={true}
+      filterType={"multiple"} editmode={"modal"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
           { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
@@ -1600,8 +1600,8 @@ const datatableEditPage = () => {
           { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
           { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
           { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.Number, columnControllerProps: { type: "currency", currencyOptions: ["TRY", "USD"] } },
-          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.Number },
+          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "currency", currencyOptions: ["TRY", "USD"] } },
+          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
           { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
           { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }

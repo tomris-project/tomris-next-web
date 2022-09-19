@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { CheckboxProps, DateProps, iFormProps, InputNumberProps, InputProps, ITabMainProps, RadioProps, SelectProps, WebApi } from "tomris-web-api"
 import { ControllerType } from "tomris-web-api";
 
@@ -1460,12 +1461,15 @@ const DataTablePage = () => {
 
   let TableData = WebApi.Controller.useDataTable();
   let TableData2 = WebApi.Controller.useDataTable();
+
+  let options=_.union( FakeData.products.map(t=>t.region)).map(t=>{ return { label:t,value:t }})
   return <>
     <hr />
     Sample 1
     <hr />
     <TableData.View
       name="DataTable1"
+      maxHeight={950}
       SearchForm={{
         event: (form) => {
           console.log(form.getValue());
@@ -1484,29 +1488,29 @@ const DataTablePage = () => {
         }
 
       }}
-      selectLoadExp={(row) => { return row.numberrange?.value > 5 }}
+      selectLoadExp={(row) => { return row.numberrange?.value > 5 }} 
       header="SELAM DATA "
       data={FakeData.products}
       selectableRows
       filterType={"multiple"} editmode={"none"} filterTypeLabelExcelModeIsShow={true}
       columns={
         [
-          { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
-          { dataKey: "name", columnName: "name", columnControllerType: ControllerType.Input },
-          { dataKey: "phone", columnName: "phone", columnControllerType: ControllerType.Input },
-          { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
-          { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Input },
-          { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
-          { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "curreny" } },
-          { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
-          { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
-          { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
-          { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
+          // { dataKey: "CheckBox", columnName: "CheckBox", columnControllerType: ControllerType.Checkbox, isNotEdit: true },
+          // { dataKey: "name", columnName: "name", columnControllerType: ControllerType.Input },
+          // { dataKey: "phone", columnName: "phone", columnControllerType: ControllerType.Input },
+          // { dataKey: "email", columnName: "email", columnControllerType: ControllerType.Input, isNotEdit: true },
+          { dataKey: "region", columnName: "region", columnControllerType: ControllerType.Select,columnControllerProps:{ options:options ,id:"" ,returntype:"value" }as SelectProps },
+          // { dataKey: "country", columnName: "country", columnControllerType: ControllerType.Input },
+          // { dataKey: "numberrange", columnName: "numberrange", columnControllerType: ControllerType.InputNumber, columnControllerProps: { type: "curreny" } },
+          // { dataKey: "currency", columnName: "currency", columnControllerType: ControllerType.InputNumber },
+          // { dataKey: "alphanumeric", columnName: "alphanumeric", columnControllerType: ControllerType.Input },
+          // { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime" } },
+          // { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
         ]
       } />
 
 
-    <hr />
+    {/* <hr />
     Sample 2
     <hr />
     <TableData2.View
@@ -1535,7 +1539,7 @@ const DataTablePage = () => {
           { dataKey: "date", columnName: "date", columnControllerType: ControllerType.Date, columnControllerProps: { type: "datetime",spacer:true } },
           { dataKey: "time", columnName: "time", columnControllerType: ControllerType.Date, isNotEdit: true, columnControllerProps: { type: "time" } }
         ]
-      } />
+      } /> */}
   </>
 }
 

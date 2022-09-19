@@ -186,5 +186,11 @@
   padding: 10px !important;
 }
 
+.rdt_TableCol_Sortable:hover,
+.rdt_TableCol:hover {
+  opacity: 1 !important;
+  color: #000;
+}
+
 
 @import "rc-tree/assets/index.css" 
